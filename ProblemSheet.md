@@ -1,17 +1,19 @@
 # For Loops
 
-This week, since there is not going to be a live discussion, we will only be reviewing material from this past week, and spending a bit of time putting everything we've learned so far together to see how, without learning about any new features, we can write some pretty cool things in Java! But as usual, let's start with the review:
+This week, we leared a lot counted for loops, and saw multiple examples of them during both lectures. We covered the basic of the counted for loop last week, so this time we will review them in slightly more detail, and in the end, solve one task that visualizes the `Regions` that we have used multiple times in lecture. But as usual, let's start with the review:
 
 ## For-in loops
-"For-in" loops, which we also called "for-each" loops, run the body of their loops once per element in a given array, in the other that they appear in the array, with the "loop variable" assigned to that element. (Side note: they are called that because we can read them as "*for each* element *in* the array, do ...")
+"For-in" loops, which we also called "for-each" loops, run the body of their loops once per element in a given array, in the order that they appear in the array, with the "loop variable" assigned to that element.
 
 Their syntax looks like:
 
 ```java
-for (/* element type: */ /* variable name */: /* array */) {
+for (/* element type */ /* variable name */: /* array */) {
     /* loop body */
 }
 ```
+
+(Side note: they are **for-each** or **for-in** loops because we can read the above as "**for each** \<variable name\> **in** \<array\>, do \<loop body\>")
 
 For example, the following code snippet:
 
@@ -30,10 +32,10 @@ Hello
 CSE11
 ```
 
-to the terminal. Notice that the element in the loop must match the type of the elements in the given array (`String` in the example above), but the loop variable name (`message` in the example above) can be any valid variable name in Java.
+to the terminal. Notice that the loop variable's type must match the type of the elements in the given array (`String` in the example above), but its name (`message` in the example above) can be any valid variable name in Java.
 
 ## Counted for loops
-What we called "Counted for loop" in the readings is the other kind of loop that we have seen. Unlike for-in loops, these are not limited to running once per element in an array, and contrary to what their name might suggest, they are not even limited to counting!
+What we called "Counted for loop" in the readings is the other kind of loop that we have seen. Unlike for-in loops, these are not limited to running once per element in an array, and despite their name, they can do much more than counting!
 
 Their syntax looks like:
 
@@ -103,6 +105,40 @@ While this example still created a loop variable named `i`, this time:
 3. We exit the loop when the loop variable is no greater than 1: `i > 1`
 4. And instead of using the loop variable as an index to access array element, we use it to perform a math operation and store the results in an "accumulator" variable: `result *= i`
 
+The body of counted for loops, just like the body of for-in loops, then and else branches of if statements, and methods, can contain multiple Java statements, including multiple method calls, variable definitions and updates, if statements, and even other loops! For instance, similar to what we saw in lecture, the following code:
+
+```java
+// Start with the top header of the table
+String result = "\t1\t2\t3\t4\t5\n";
+
+for (int i = 1; i <= 5; i += 1) {
+    // Print the left header
+    result += i;
+    
+    // Print the row
+    for (int j = 1; j <= 5; j += 1) {
+        result += "\t" + (i * j);
+    }
+
+    // Add a newline to finish the row
+    result += "\n";
+}
+
+System.out.println(result);
+```
+
+Prints the times table from 1 to 5 to the terminal:
+
+```log
+        1       2       3       4       5
+1       1       2       3       4       5
+2       2       4       6       8       10
+3       3       6       9       12      15
+4       4       8       12      16      20
+5       5       10      15      20      25
+```
+
+
 To summarize, counted for loops are executed like so:
 
 1. Run the initialization statement.
@@ -114,25 +150,26 @@ To summarize, counted for loops are executed like so:
 which can be pictorially represented as:
 
 ```
-                         (exit)
-                            ^
-                            | (false)
-                            |
- ---------------      -------------   (true)   --------      ----------
-|  initializer  | -> |  condition  | -------> |  body  | -> |  update  | -
+                             ---------------------------------------------
+                            |                                             |
+                            ˅                                             |
  ---------------      -------------            --------      ----------   |
-                           ^                                              |
-                           |                                              |
-                            ----------------------------------------------
+|  initializer  | -> |  condition  | -------> |  body  | -> |  update  | -
+ ---------------      -------------    true    --------      ----------
+                            |
+                      false |
+                            |
+                            ˅
+                          (exit)
 ```
 
 ## A Note on Loop Variable names
-As we have seen multiple times in this class so far, picking meaningful variable names is a super importing part of keeping good code style, and it still applies to loop variables. With that in mind, here are some useful tips/conventions you might use when writing your own loop variables:
+As we have seen multiple times in this class, picking meaningful variable names is a super importing part of keeping good code style, and it still applies to loop variables. With that in mind, here are some useful tips/conventions you might use when writing your own loop variables:
 
 1. The loop variable of a for-in loop represents each element of the given array. So typically, we tend to name the arrays with a plural name (e.g. `messages`) and give the singular name to the loop variable (e.g. `message`).
 2. Counted-for loop variables are often (though not always!) used as an _index_ of an array, or for keeping track of the _iteration_ of the loop. So frequently, especially when they are of the form `for (int i = 0; i < /* some value */; i += 1)`, we simply name them `i`, which is short of either `index` or `iteration`. If, however, you are _not_ simply going over indices of an array, or keeping track of iterations, but doing something more complicated or interesting, then it may be worthwhile to pick a better name for the loop variable to make it easier to understand.
 
-# Problems
+# Problem
 Write the contents of the method `visualize` in the `ARegion` abstract class.
 
 It should return a `String` containing a visualization of that `Region` in a view spanning `xMin` to `xMax` in the _x_ direction, and `yMin` to `yMax` in the _y_ direction. In this view, any point that is `contain`ed in the `Region` should be represented as two `#` characters, and any point _not_ in the `Region` should be represented as two `_` characters. We have already implemented an example of calling this method in `Discussion06.java`, so when you are done, running
