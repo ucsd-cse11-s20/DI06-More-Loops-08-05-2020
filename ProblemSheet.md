@@ -175,18 +175,11 @@ Write the contents of the method `visualize` in the `ARegion` abstract class.
 It should return a `String` containing a visualization of that `Region` in a view spanning `xMin` to `xMax` in the _x_ direction, and `yMin` to `yMax` in the _y_ direction. In this view, any point that is `contain`ed in the `Region` should be represented as two `#` characters, and any point _not_ in the `Region` should be represented as two `_` characters. We have already implemented an example of calling this method in `Discussion06.java`, so when you are done, running
 
 ```log
-$ javac -cp tester.jar:. Discussion06.java
+$ javac Discussion06.java
 $ java Discussion06
 ```
 
-On Mac and Repl.it, or running:
-
-```log
-$ javac -cp tester.jar:%cd% Discussion06.java
-$ java Discussion06
-```
-
-on Windows should print the following to the terminal:
+should print the following to the terminal:
 
 ```log
 ________________________________________
@@ -210,19 +203,5 @@ ________________________________________
 ________________________________________
 ________________________________________
 ```
-
-We have also implemented this as a test, so you can check your implementation by running:
-
-```log
-$ ./run Discussion06
-```
-
-on Mac and Repl.it, or
-
-```log
-$ .\run.bat Discussion06
-```
-
-on Windows.
 
 Hint: This is a _very_ slight modification of [this](https://drive.google.com/file/d/157v75MQE_k0h-z9S3_tCVvaHIP-nvWFs/view?usp=sharing) lecture video. If you are stuck, I recommend watching the video until it reaches the point at which you are stuck, but pausing it immediately afterwards to continue work on the problem on your own.

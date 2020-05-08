@@ -1,5 +1,3 @@
-import tester.*;
-
 class Point {
     int x;
     int y;
@@ -19,9 +17,9 @@ interface Region {
     String visualize(int xMin, int xMax, int yMin, int yMax);
 }
 
-abstract class ARegion {
-    String visualize(int xMin, int xMax, int yMin, int yMax) {
-        // Fill out the body of this method.
+abstract class ARegion implements Region {
+    public String visualize(int xMin, int xMax, int yMin, int yMax) {
+        // Complete this method
         return "";
     }
 }
@@ -35,7 +33,7 @@ class CircRegion extends ARegion {
 	    this.radius = radius;
     }
 
-    boolean contains(Point p) {
+    public boolean contains(Point p) {
 	    return this.center.distance(p) < this.radius;
     }
 }
@@ -44,30 +42,5 @@ class Discussion06 {
     public static void main(String[] args) {
 	    CircRegion c1 = new CircRegion(new Point(10, 10), 6);
         System.out.println(c1.visualize(0, 20, 0, 20));
-    }
-
-    void testVisualize(Tester t) {
-        String expected = "________________________________________\n" +
-            "________________________________________\n" +
-            "________________________________________\n" +
-            "________________________________________\n" +
-            "________________________________________\n" +
-            "______________##############____________\n" +
-            "____________##################__________\n" +
-            "__________######################________\n" +
-            "__________######################________\n" +
-            "__________######################________\n" +
-            "__________######################________\n" +
-            "__________######################________\n" +
-            "__________######################________\n" +
-            "__________######################________\n" +
-            "____________##################__________\n" +
-            "______________##############____________\n" +
-            "________________________________________\n" +
-            "________________________________________\n" +
-            "________________________________________\n" +
-            "________________________________________\n";
-        String actual = new CircRegion(new Point(10, 10), 6).visualize(0, 20, 0, 20);
-        t.checkExpect(actual, expected);
     }
 }
