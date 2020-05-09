@@ -2,7 +2,7 @@
 
 ---
 
-Video recording: COMING SOON
+Video recordings: https://drive.google.com/drive/folders/1uMyfpq2tjZ0rtIlKryDPIYhgHCKvdaKZ?usp=sharing
 
 Problem sheet for this discussion:
 
