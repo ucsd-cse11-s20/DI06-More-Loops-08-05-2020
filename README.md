@@ -10,11 +10,11 @@ https://github.com/ucsd-cse11-s20/DI06-More-Loops-08-05-2020/blob/master/Problem
 
 Starter code:
 
-COMING SOON
+https://github.com/ucsd-cse11-s20/DI06-More-Loops-08-05-2020/blob/master/Discussion06.java
 
 Solution:
 
-COMING SOON (In the meantime, you can check out [this](https://drive.google.com/file/d/157v75MQE_k0h-z9S3_tCVvaHIP-nvWFs/view?usp=sharing) lecture video which solves almost the same problem!)
+https://github.com/ucsd-cse11-s20/DI06-More-Loops-08-05-2020/blob/master/Discussion06Solution.java
 
 Readings reviewd in this discussion:
 - [Arrays, Variables, and For-loops](https://cseweb.ucsd.edu/classes/sp17/cse11-a/lecture19.html)
